@@ -3,7 +3,14 @@ import streamlit
 import pandas
 import requests
 import snowflake.connector
-from  urlib.error import URLError
+try:
+    # For Python 3.0 and later
+    from urllib.error import urlerror
+except ImportError:
+    # Fall back to Python 2's urllib2
+    from urllib2 import urlerror
+    
+    #from  urlib.error import URLError
 
 streamlit.title('My Mom´s New Healthy Diner')
 streamlit.header('Breakfast Favorites')
